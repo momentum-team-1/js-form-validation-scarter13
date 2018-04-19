@@ -1,9 +1,5 @@
 # Validating a Form
 
-## Skills
-
-TODO
-
 ## Directions
 
 Look at `form.html`. It contains a form for pre-paid parking. It uses [Shoelace](https://shoelace.style/), a simple CSS framework for styling.
