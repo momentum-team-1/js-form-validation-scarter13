@@ -75,3 +75,11 @@ Add the following validations:
 
 * Expiration date must be a valid month and year.
 * Expiration date must not be in the past.
+
+### Step 7
+
+Remember to have fun!
+
+### Step 8
+
+Turn this in via Google Classroom.
