@@ -6,7 +6,7 @@ let form = document.querySelector('#parking-form')
 form.addEventListener('submit', function(event){
     event.preventDefault()
     // removeErrorMessage()
-    formIsValid = true
+    // formIsValid = true
     console.log ("button was clicked")
 
     validateName()
@@ -15,7 +15,7 @@ form.addEventListener('submit', function(event){
     validateDays()
     validateCC()
     validateCvv()
-    validateExpiry ()
+    validateExpiry()
    
 })
 
@@ -24,19 +24,22 @@ form.addEventListener('submit', function(event){
 function validateName() {
 let nameInput = document.querySelector('#name');
 let nameValue = nameInput.value;
+let nameLabel = document.getElementsByTagName("label") [0]
+console.log (nameLabel)
 console.log (nameValue)
 let nameField = nameInput.parentElement
-let nameLabel = document.querySelector("name-label")
 if (nameValue !== ""){
     nameField.classList.remove("input-invalid");
     nameField.classList.add("input-valid");
-    // nameLabel.textContent="Name";
+    nameLabel.textContent="Name";
 } else {
     nameField.classList.remove("input-valid");
     nameField.classList.add("input-invalid");
-    // nameLabel.textContent="Name is Required"
+    nameLabel.textContent="Name is Required"
     }
 }
+
+// to do: make the car and car error message turn red; add the class valid or invalid to that grandparent element somehow.  call it gpCarLabel
 
 function validateCar() {
     let carYearInput = document.querySelector('#car-year');
@@ -45,25 +48,30 @@ function validateCar() {
     let carMakeValue = carMakeInput.value;
     let carModelInput = document.querySelector('#car-model');
     let carModelValue = carModelInput.value;
+    let carLabel = document.getElementsByTagName("label") [1]
+
+    console.log (carLabel)
     console.log (carYearValue)
     console.log (carMakeValue)
     console.log (carModelValue)
     let inputGroupField = carYearInput.parentElement
-    let carYearLabel = document.querySelector("car-year-label")
-    let carMakeLabel = document.querySelector("car-make-label")    
-    let carModelLabel = document.querySelector("car-model-label")
+    let gpCarLabel = inputGroupField.parentElement
+    // let carYearLabel = document.querySelector("car-year-label")
+    // let carMakeLabel = document.querySelector("car-make-label")    
+    // let carModelLabel = document.querySelector("car-model-label")
     if (carYearValue !== "" && carMakeValue !== "" && carModelValue !== "") {
         inputGroupField.classList.remove("input-invalid");
+        gpCarLabel.classList.remove("input-invalid");
         inputGroupField.classList.add("input-valid");
-    // carYearLabel.textContent="Car Year";
-    // carMakeLabel.textContent="Car Make";
-    // carModelLabel.textContent="Car Model";
+        gpCarLabel.classList.add("input-valid");
+        carLabel.textContent="Car";
     } else {
         inputGroupField.classList.remove("input-valid");
+        gpCarLabel.classList.remove("input-valid");
         inputGroupField.classList.add("input-invalid");
-    // carYearLabel.textContent="Car Year is Required"
-    // carMakeLabel.textContent="Car Make is Required"
-    // carModelLabel.textContent="Car Model is Required"
+        gpCarLabel.classList.add("input-invalid");
+        carLabel.textContent="Car Year, Make, and Model are required";
+
         }
     }
 
