@@ -1,5 +1,5 @@
 let form = document.querySelector('#parking-form')
-let formIsValid
+// let formIsValid
 
 
 
@@ -8,9 +8,7 @@ form.addEventListener('submit', function(event){
     // removeErrorMessage()
     formIsValid = true
     console.log ("button was clicked")
-//these 3 lines will remove the error messages and reset the form when it is being used.  Does it reset the form every time?  
 
-//next, here are all of the functions you will need to create to validate each line of input for the form
     validateName()
     // validateCarYear ()
     // validateCarMake ()
@@ -23,21 +21,31 @@ form.addEventListener('submit', function(event){
    
 })
 
-//now, write each function sequentially, naming them as you have named them above, so that the eventListener can call these functions in the code above
-
 function validateName() {
 let nameInput = document.querySelector('#name');
 let nameValue = nameInput.value;
 console.log (nameValue)
-
+let nameField = nameInput.parentElement
+let nameLabel = document.querySelector("name-label")
+if (nameValue !== ""){
+    nameField.classList.remove("input-invalid");
+    nameField.classList.add("input-valid");
+    // nameLabel.textContent="Name";
+} else {
+    nameField.classList.remove("input-valid");
+    nameField.classList.add("input-invalid");
+    // nameLabel.textContent="Name is Required"
+    }
 }
+
+    
+
 
 
 // set up variable for one field
 //set up variable to grab content of that field
 // create function to console log value of variable
 // set up variables for all fields
-
 
 
 
