@@ -10,14 +10,12 @@ form.addEventListener('submit', function(event){
     console.log ("button was clicked")
 
     validateName()
-    validateCarYear ()
-    validateCarMake()
-    // validateCarModel ()
-    // validateDate ()
-    // validateDuration ()
-    // validateCreditCard ()
-    // validateCVV ()
-    // validateExpiry ()
+    validateCar()
+    validateDate()
+    validateDays()
+    validateCC()
+    validateCvv()
+    validateExpiry ()
    
 })
 
@@ -40,41 +38,119 @@ if (nameValue !== ""){
     }
 }
 
-function validateCarYear() {
+function validateCar() {
     let carYearInput = document.querySelector('#car-year');
     let carYearValue = carYearInput.value;
+    let carMakeInput = document.querySelector('#car-make');
+    let carMakeValue = carMakeInput.value;
+    let carModelInput = document.querySelector('#car-model');
+    let carModelValue = carModelInput.value;
     console.log (carYearValue)
+    console.log (carMakeValue)
+    console.log (carModelValue)
     let inputGroupField = carYearInput.parentElement
     let carYearLabel = document.querySelector("car-year-label")
-    if (carYearValue !== ""){
+    let carMakeLabel = document.querySelector("car-make-label")    
+    let carModelLabel = document.querySelector("car-model-label")
+    if (carYearValue !== "" && carMakeValue !== "" && carModelValue !== "") {
         inputGroupField.classList.remove("input-invalid");
         inputGroupField.classList.add("input-valid");
     // carYearLabel.textContent="Car Year";
+    // carMakeLabel.textContent="Car Make";
+    // carModelLabel.textContent="Car Model";
     } else {
         inputGroupField.classList.remove("input-valid");
         inputGroupField.classList.add("input-invalid");
     // carYearLabel.textContent="Car Year is Required"
+    // carMakeLabel.textContent="Car Make is Required"
+    // carModelLabel.textContent="Car Model is Required"
         }
     }
 
-    function validateCarMake() {
-    let carMakeInput = document.querySelector('#car-make');
-    let carMakeValue = carMakeInput.value;
-    console.log (carMakeValue)
-    let inputGroupField = carMakeInput.parentElement
-    let carMakeLabel = document.querySelector("car-make-label")
-    if (carMakeValue !== ""){
-        inputGroupField.classList.remove("input-invalid");
-        inputGroupField.classList.add("input-valid");
-    // carMakeLabel.textContent="Car Make";
+function validateDate() {
+    let dateInput = document.querySelector('#start-date');
+    let dateValue = dateInput.value;
+    console.log (dateValue)
+    let dateField = dateInput.parentElement
+    let dateLabel = document.querySelector("start-date-label")
+    if (dateValue !== ""){
+        dateField.classList.remove("input-invalid");
+        dateField.classList.add("input-valid");
+        // dateLabel.textContent="Date parking";
     } else {
-        inputGroupField.classList.remove("input-valid");
-        inputGroupField.classList.add("input-invalid");
-    // carmakeLabel.textContent="Car Make is Required"
+        dateField.classList.remove("input-valid");
+        dateField.classList.add("input-invalid");
+        // dateLabel.textContent="Date parking is Required"
         }
     }
 
+function validateDays() {
+    let daysInput = document.querySelector('#days');
+    let daysValue = daysInput.value;
+    console.log (daysValue)
+    let daysField = daysInput.parentElement
+    let daysLabel = document.querySelector("days-label")
+    if (daysValue !== ""){
+        daysField.classList.remove("input-invalid");
+        daysField.classList.add("input-valid");
+        // daysLabel.textContent="Number of Days";
+    } else {
+        daysField.classList.remove("input-valid");
+        daysField.classList.add("input-invalid");
+        // daysLabel.textContent="Number of Days is Required"
+        }
+    }
 
+function validateCC() {
+    let CCInput = document.querySelector('#credit-card');
+    let CCValue = CCInput.value;
+    console.log (CCValue)
+    let CCField = CCInput.parentElement
+    let CCLabel = document.querySelector("credit-card-label")
+    if (CCValue !== ""){
+        CCField.classList.remove("input-invalid");
+        CCField.classList.add("input-valid");
+        // CCLabel.textContent="Credit Card";
+    } else {
+        CCField.classList.remove("input-valid");
+        CCField.classList.add("input-invalid");
+        // CCLabel.textContent="Credit Card is Required"
+        }
+    }
+    
+function validateCvv() {
+    let cvvInput = document.querySelector('#cvv');
+    let cvvValue = cvvInput.value;
+    console.log (cvvValue)
+    let cvvField = cvvInput.parentElement
+    let cvvLabel = document.querySelector("cvv-label")
+    if (cvvValue !== ""){
+        cvvField.classList.remove("input-invalid");
+        cvvField.classList.add("input-valid");
+        // cvvLabel.textContent="CVV";
+    } else {
+        cvvField.classList.remove("input-valid");
+        cvvField.classList.add("input-invalid");
+        // cvvLabel.textContent="CVV is Required"
+        }
+    }
+
+function validateExpiry() {
+    let expiryInput = document.querySelector('#expiration');
+    let expiryValue = expiryInput.value;
+    console.log (expiryValue)
+    let expiryField = expiryInput.parentElement
+    let expiryLabel = document.querySelector("expiration-label")
+    if (expiryValue !== ""){
+        expiryField.classList.remove("input-invalid");
+        expiryField.classList.add("input-valid");
+        // expiryLabel.textContent="Expiration";
+    } else {
+        expiryField.classList.remove("input-valid");
+        expiryField.classList.add("input-invalid");
+        // expiryLabel.textContent="Expiration is Required"
+        }
+    }
     
 
 
