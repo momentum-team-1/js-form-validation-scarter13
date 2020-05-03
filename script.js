@@ -125,10 +125,10 @@ function validateDays() {
         daysField.classList.remove("input-valid");
         daysField.classList.add("input-invalid");
         daysLabel.textContent="Number of Days is Required"
-    } else if (daysValue>30) {
+    } else if(isNaN(daysValue) || daysValue > 30){
         daysField.classList.remove("input-valid");
         daysField.classList.add("input-invalid");
-        daysLabel.textContent="30 day maximum"   
+        daysLabel.textContent="Days must be a number between 1 and 30"  
     } else {
         daysField.classList.remove("input-invalid");
         daysField.classList.add("input-valid");
