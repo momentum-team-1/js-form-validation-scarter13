@@ -49,7 +49,6 @@ function validateCar() {
     let carModelInput = document.querySelector('#car-model');
     let carModelValue = carModelInput.value;
     let carLabel = document.getElementsByTagName("label") [1]
-
     console.log (carLabel)
     console.log (carYearValue)
     console.log (carMakeValue)
@@ -70,7 +69,7 @@ function validateCar() {
         gpCarLabel.classList.remove("input-valid");
         inputGroupField.classList.add("input-invalid");
         gpCarLabel.classList.add("input-invalid");
-        carLabel.textContent="Car Year, Make, and Model are required";
+        carLabel.textContent="Car Year, Make, and Model are Required";
 
         }
     }
@@ -78,17 +77,17 @@ function validateCar() {
 function validateDate() {
     let dateInput = document.querySelector('#start-date');
     let dateValue = dateInput.value;
+    let dateLabel = document.getElementsByTagName("label") [2]
     console.log (dateValue)
     let dateField = dateInput.parentElement
-    let dateLabel = document.querySelector("start-date-label")
     if (dateValue !== ""){
         dateField.classList.remove("input-invalid");
         dateField.classList.add("input-valid");
-        // dateLabel.textContent="Date parking";
+        dateLabel.textContent="Date parking";
     } else {
         dateField.classList.remove("input-valid");
         dateField.classList.add("input-invalid");
-        // dateLabel.textContent="Date parking is Required"
+        dateLabel.textContent="Date parking is Required"
         }
     }
 
@@ -97,15 +96,15 @@ function validateDays() {
     let daysValue = daysInput.value;
     console.log (daysValue)
     let daysField = daysInput.parentElement
-    let daysLabel = document.querySelector("days-label")
+    let daysLabel = document.getElementsByTagName("label") [3]
     if (daysValue !== ""){
         daysField.classList.remove("input-invalid");
         daysField.classList.add("input-valid");
-        // daysLabel.textContent="Number of Days";
+        daysLabel.textContent="Number of Days";
     } else {
         daysField.classList.remove("input-valid");
         daysField.classList.add("input-invalid");
-        // daysLabel.textContent="Number of Days is Required"
+        daysLabel.textContent="Number of Days is Required"
         }
     }
 
@@ -114,15 +113,15 @@ function validateCC() {
     let CCValue = CCInput.value;
     console.log (CCValue)
     let CCField = CCInput.parentElement
-    let CCLabel = document.querySelector("credit-card-label")
+    let CCLabel = document.getElementsByTagName("label") [4]
     if (CCValue !== ""){
         CCField.classList.remove("input-invalid");
         CCField.classList.add("input-valid");
-        // CCLabel.textContent="Credit Card";
+        CCLabel.textContent="Credit Card";
     } else {
         CCField.classList.remove("input-valid");
         CCField.classList.add("input-invalid");
-        // CCLabel.textContent="Credit Card is Required"
+        CCLabel.textContent="Credit Card is Required"
         }
     }
     
@@ -131,15 +130,15 @@ function validateCvv() {
     let cvvValue = cvvInput.value;
     console.log (cvvValue)
     let cvvField = cvvInput.parentElement
-    let cvvLabel = document.querySelector("cvv-label")
+    let cvvLabel = document.getElementsByTagName("label") [5]
     if (cvvValue !== ""){
         cvvField.classList.remove("input-invalid");
         cvvField.classList.add("input-valid");
-        // cvvLabel.textContent="CVV";
+        cvvLabel.textContent="CVV";
     } else {
         cvvField.classList.remove("input-valid");
         cvvField.classList.add("input-invalid");
-        // cvvLabel.textContent="CVV is Required"
+        cvvLabel.textContent="CVV is Required"
         }
     }
 
@@ -148,15 +147,15 @@ function validateExpiry() {
     let expiryValue = expiryInput.value;
     console.log (expiryValue)
     let expiryField = expiryInput.parentElement
-    let expiryLabel = document.querySelector("expiration-label")
+    let expiryLabel = document.getElementsByTagName("label") [6]
     if (expiryValue !== ""){
         expiryField.classList.remove("input-invalid");
         expiryField.classList.add("input-valid");
-        // expiryLabel.textContent="Expiration";
+        expiryLabel.textContent="Expiration";
     } else {
         expiryField.classList.remove("input-valid");
         expiryField.classList.add("input-invalid");
-        // expiryLabel.textContent="Expiration is Required"
+        expiryLabel.textContent="Expiration is Required"
         }
     }
     
