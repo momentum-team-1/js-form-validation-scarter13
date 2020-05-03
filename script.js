@@ -14,9 +14,11 @@ form.addEventListener('submit', function(event){
     validateCar()
     qualifyCar()
     validateDate()
+    // qualifyDate()
     validateDays()
     validateCC()
     validateCvv()
+    qualifyCvv()
     validateExpiry()
    
 })
@@ -110,6 +112,27 @@ function validateDate() {
         }
     }
 
+// function qualifyDate () {
+//     let dateInput = document.querySelector('#start-date');
+//     let dateValue = dateInput.value;
+//     let dateLabel = document.getElementsByTagName("label") [2]
+//     let dateField = dateInput.parentElement
+//     let currentDate = new Date
+   
+//     console.log ("today's date is ", currentDate)
+//     console.log ("parking date is ", dateValue)
+
+//     if (dateValue.getTime() <= currentDate.getTime()) {
+//         dateField.classList.remove("input-valid");
+//         dateField.classList.add("input-invalid");
+//         dateLabel.textContent="Date must be in the future"
+//     } else {
+//         dateField.classList.remove("input-invalid");
+//         dateField.classList.add("input-valid");
+//         dateLabel.textContent="Date parking";
+//     }
+// }
+
 function validateDays() {
     let daysInput = document.querySelector('#days');
     let daysValue = daysInput.value;
@@ -160,6 +183,22 @@ function validateCvv() {
         cvvLabel.textContent="CVV is Required"
         }
     }
+
+function qualifyCvv(){
+    let cvvInput = document.querySelector('#cvv');
+    let cvvValue = cvvInput.value;
+    let cvvField = cvvInput.parentElement
+    let cvvLabel = document.getElementsByTagName("label") [5]
+    if (cvvValue < 1000 && cvvValue > 99){
+        cvvField.classList.remove("input-invalid");
+        cvvField.classList.add("input-valid");
+        cvvLabel.textContent="CVV";
+    } else {
+        cvvField.classList.remove("input-valid");
+        cvvField.classList.add("input-invalid");
+        cvvLabel.textContent="CVV should be a 3-digit number"
+        }
+}
 
 function validateExpiry() {
     let expiryInput = document.querySelector('#expiration');
