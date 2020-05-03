@@ -8,9 +8,11 @@ form.addEventListener('submit', function(event){
     // removeErrorMessage()
     // formIsValid = true
     console.log ("button was clicked")
+    let qCar
 
     validateName()
     validateCar()
+    qualifyCar()
     validateDate()
     validateDays()
     validateCC()
@@ -19,14 +21,11 @@ form.addEventListener('submit', function(event){
    
 })
 
-// the variable assignments for 'something -label' are, for now, placeholders to create text on the appropriate fields if that field is evaluated as invalid.  The variable definitions are not commented out, but their assignments are.
-
 function validateName() {
 let nameInput = document.querySelector('#name');
 let nameValue = nameInput.value;
 let nameLabel = document.getElementsByTagName("label") [0]
-console.log (nameLabel)
-console.log (nameValue)
+// console.log (nameValue)
 let nameField = nameInput.parentElement
 if (nameValue !== ""){
     nameField.classList.remove("input-invalid");
@@ -39,8 +38,6 @@ if (nameValue !== ""){
     }
 }
 
-// to do: make the car and car error message turn red; add the class valid or invalid to that grandparent element somehow.  call it gpCarLabel
-
 function validateCar() {
     let carYearInput = document.querySelector('#car-year');
     let carYearValue = carYearInput.value;
@@ -49,36 +46,58 @@ function validateCar() {
     let carModelInput = document.querySelector('#car-model');
     let carModelValue = carModelInput.value;
     let carLabel = document.getElementsByTagName("label") [1]
-    console.log (carLabel)
-    console.log (carYearValue)
-    console.log (carMakeValue)
-    console.log (carModelValue)
+    // console.log (carYearValue)
+    // console.log (carMakeValue)
+    // console.log (carModelValue)
     let inputGroupField = carYearInput.parentElement
     let gpCarLabel = inputGroupField.parentElement
-    // let carYearLabel = document.querySelector("car-year-label")
-    // let carMakeLabel = document.querySelector("car-make-label")    
-    // let carModelLabel = document.querySelector("car-model-label")
     if (carYearValue !== "" && carMakeValue !== "" && carModelValue !== "") {
         inputGroupField.classList.remove("input-invalid");
         gpCarLabel.classList.remove("input-invalid");
         inputGroupField.classList.add("input-valid");
         gpCarLabel.classList.add("input-valid");
         carLabel.textContent="Car";
-    } else {
+    } else { 
         inputGroupField.classList.remove("input-valid");
         gpCarLabel.classList.remove("input-valid");
         inputGroupField.classList.add("input-invalid");
         gpCarLabel.classList.add("input-invalid");
         carLabel.textContent="Car Year, Make, and Model are Required";
 
+
         }
     }
+
+
+
+function qualifyCar() {
+    let currentYear = new Date().getFullYear()
+    let carYearInput = document.querySelector('#car-year');
+    let carYearValue = carYearInput.value;
+    let carLabel = document.getElementsByTagName("label") [1]
+    let inputGroupField = carYearInput.parentElement
+    let gpCarLabel = inputGroupField.parentElement
+    if (isNaN(carYearValue) || carYearValue < 1901 || carYearValue > currentYear){
+        inputGroupField.classList.remove("input-valid");
+        gpCarLabel.classList.remove("input-valid");
+        inputGroupField.classList.add("input-invalid");
+        gpCarLabel.classList.add("input-invalid");
+        carLabel.textContent="Year is not a valid number";}
+    else {
+        inputGroupField.classList.remove("input-invalid");
+        gpCarLabel.classList.remove("input-invalid");
+        inputGroupField.classList.add("input-valid");
+        gpCarLabel.classList.add("input-valid");
+        carLabel.textContent="Car";
+    }
+
+}
 
 function validateDate() {
     let dateInput = document.querySelector('#start-date');
     let dateValue = dateInput.value;
     let dateLabel = document.getElementsByTagName("label") [2]
-    console.log (dateValue)
+    // console.log (dateValue)
     let dateField = dateInput.parentElement
     if (dateValue !== ""){
         dateField.classList.remove("input-invalid");
@@ -94,7 +113,7 @@ function validateDate() {
 function validateDays() {
     let daysInput = document.querySelector('#days');
     let daysValue = daysInput.value;
-    console.log (daysValue)
+    // console.log (daysValue)
     let daysField = daysInput.parentElement
     let daysLabel = document.getElementsByTagName("label") [3]
     if (daysValue !== ""){
@@ -111,7 +130,7 @@ function validateDays() {
 function validateCC() {
     let CCInput = document.querySelector('#credit-card');
     let CCValue = CCInput.value;
-    console.log (CCValue)
+    // console.log (CCValue)
     let CCField = CCInput.parentElement
     let CCLabel = document.getElementsByTagName("label") [4]
     if (CCValue !== ""){
@@ -128,7 +147,7 @@ function validateCC() {
 function validateCvv() {
     let cvvInput = document.querySelector('#cvv');
     let cvvValue = cvvInput.value;
-    console.log (cvvValue)
+    // console.log (cvvValue)
     let cvvField = cvvInput.parentElement
     let cvvLabel = document.getElementsByTagName("label") [5]
     if (cvvValue !== ""){
@@ -145,7 +164,7 @@ function validateCvv() {
 function validateExpiry() {
     let expiryInput = document.querySelector('#expiration');
     let expiryValue = expiryInput.value;
-    console.log (expiryValue)
+    // console.log (expiryValue)
     let expiryField = expiryInput.parentElement
     let expiryLabel = document.getElementsByTagName("label") [6]
     if (expiryValue !== ""){
