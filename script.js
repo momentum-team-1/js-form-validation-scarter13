@@ -79,14 +79,22 @@ function validateCar() {
 
 function validateDate() {
     let dateInput = document.querySelector('#start-date');
-    let dateValue = dateInput.value;
+    let dateValue= dateInput.value;
+    let reserveDate = dateInput.valueAsNumber;
     let dateLabel = document.getElementsByTagName("label") [2]
-    console.log (dateValue)
-    let dateField = dateInput.parentElement
+    let dateField = dateInput.parentElement;
+    let currentDate = Date.now ()
+        console.log ("today's date is ", currentDate)
+        console.log ("the numerical value of the parking date is", reserveDate)
+        console.log ("parking date is ", dateValue)
     if (dateValue === ""){
         dateField.classList.remove("input-valid");
         dateField.classList.add("input-invalid");
         dateLabel.textContent="Date parking is a required field"
+    } else if ( currentDate > reserveDate){
+        dateField.classList.remove("input-valid");
+        dateField.classList.add("input-invalid");
+        dateLabel.textContent="Date parking must be in the future"
     } else {
         dateField.classList.remove("input-invalid");
         dateField.classList.add("input-valid");
@@ -153,6 +161,30 @@ function validateCC() {
         }
     }
     
+
+    // function validateCardNumber(number) {
+    //     var regex = new RegExp("^[0-9]{16}$");
+    //     if (!regex.test(number))
+    //         return false;
+    
+    //     return luhnCheck(number);
+    // }
+    
+    // function luhnCheck(val) {
+    //     var sum = 0;
+    //     for (var i = 0; i < val.length; i++) {
+    //         var intVal = parseInt(val.substr(i, 1));
+    //         if (i % 2 == 0) {
+    //             intVal *= 2;
+    //             if (intVal > 9) {
+    //                 intVal = 1 + (intVal % 10);
+    //             }
+    //         }
+    //         sum += intVal;
+    //     }
+    //     return (sum % 10) == 0;
+    // }
+
 function validateCvv() {
     let cvvInput = document.querySelector('#cvv');
     let cvvValue = cvvInput.value;
@@ -166,7 +198,7 @@ function validateCvv() {
     } else if (cvvValue < 99 || cvvValue > 999){
         cvvField.classList.remove("input-valid");
         cvvField.classList.add("input-invalid");
-        cvvLabel.textContent="CVV should be a 3-digit number"
+        cvvLabel.textContent="CVV should be a 3-digit number"   
     } else {
         cvvField.classList.remove("input-invalid");
         cvvField.classList.add("input-valid");
@@ -178,7 +210,9 @@ function validateCvv() {
 function validateExpiry() {
     let expiryInput = document.querySelector('#expiration');
     let expiryValue = expiryInput.value;
-    // console.log (expiryValue)
+        console.log (expiryValue)
+        let a = (expiryValue / 100)
+        console.log (a)
     let expiryField = expiryInput.parentElement
     let expiryLabel = document.getElementsByTagName("label") [6]
     if (expiryValue === ""){
